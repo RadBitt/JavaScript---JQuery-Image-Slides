@@ -2,6 +2,8 @@
 
 <head>
 
+<link rel="stylesheet" href="main.css" type="text/css" media="screen">
+
 </head>
 
 <body>
@@ -15,5 +17,7 @@
 	</div>
 
 </body>
+
+<script type="text/javascript" src="main.js"></script>
 
 </html>
