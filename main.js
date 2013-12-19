@@ -4,26 +4,27 @@ jQuery(document).ready(function() {
 
 	function imgCount() {
 
-    	var n = jQuery('div#rad-slider div').length;
+   		var n = jQuery('div#rad-slider div').length;
 
-    	return n;
-    }
+    		return n;
+	
+	}
 
-    function imgSwitch() {
+	function imgSwitch() {
 
     	if (i >= imgCount()) {
 
-			i = 0 ; 
+		i = 0 ; 
 
-			jQuery('div#rad-slider div:first-child').addClass('active');
+		jQuery('div#rad-slider div:first-child').addClass('active');
 
-		} else {
+	} else {
 
 	    jQuery('div#rad-slider div.active').removeClass('active').next('div').addClass('active');
 
-	    }
+	}
 
-	    i++;
+	i++;
 
     }
 
