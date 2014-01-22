@@ -1,0 +1,84 @@
+
+<html>
+
+<head>
+
+	<style type="text/css">
+
+		#switch-container {
+		  position: relative;
+		  overflow: hidden;
+		  height: 450px;
+		}
+
+		.slide {
+		  width: 100%;
+		  height: 100%;
+		  position: absolute;
+		  background-repeat: no-repeat;
+		  background-size: 100%;
+		  background-position: 50%;
+		}
+
+		.active {
+		    z-index: 99;
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+		<div id="switch-container">
+
+			<div class="active slide" style="background-image: url('');">&nbsp</div>
+
+			<div class="slide" style="background-image: url('');">&nbsp</div>
+
+		</div>
+
+</body>
+
+<script type="text/javascript">
+
+jQuery(document).ready(function() {
+
+	var jQuery = $;
+
+	var containerSelector = '#switch-container ';
+
+	var i = 0;
+
+	function imgCount() {
+
+    	var n = $(containerSelector + 'div').length;
+
+    	return n;
+    }
+
+    function imgSwitch() {
+
+    	if (i >= imgCount()) {
+
+			i = 0 ; 
+
+			$(containerSelector + 'div:first-child').addClass('active');
+
+		} else {
+
+	    $(containerSelector + 'div.active').removeClass('active').next('div').addClass('active');
+
+	    }
+
+	    i++;
+
+    }
+
+	setInterval(function() { imgSwitch();} , 5000);
+
+});
+
+</script>
+
+</html>
