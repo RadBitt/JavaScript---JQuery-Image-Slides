@@ -5,10 +5,16 @@
 
 	<style type="text/css">
 
+		html, body {
+		  height: 100%;
+		  width: 100%;
+		  margin: 0;
+		}
+
 		#switch-container {
 		  position: relative;
 		  overflow: hidden;
-		  height: 450px;
+		  min-height: 100%;
 		}
 
 		.slide {
@@ -32,13 +38,15 @@
 
 		<div id="switch-container">
 
-			<div class="active slide" style="background-image: url('');">&nbsp</div>
+			<div class="active slide" style="background-image: url(http://tinyxl.com/client/stringmatters/wp-content/uploads/2014/01/Screen-Shot-2014-02-19-at-9.23.20-PM.png); opacity: 1;">&nbsp</div>
 
-			<div class="slide" style="background-image: url('');">&nbsp</div>
+			<div class="slide" style="background-image: url('http://tinyxl.com/client/stringmatters/wp-content/uploads/2014/01/Screen-Shot-2014-02-19-at-9.22.49-PM.png');  opacity: 0;">&nbsp</div>
 
 		</div>
 
 </body>
+
+<script src="js/jquery-1.10.2.min.js"></script>
 
 <script type="text/javascript">
 
@@ -48,7 +56,7 @@ jQuery(document).ready(function() {
 
 	var containerSelector = '#switch-container ';
 
-	var i = 0;
+	var i = 1;
 
 	function imgCount() {
 
@@ -59,15 +67,25 @@ jQuery(document).ready(function() {
 
     function imgSwitch() {
 
-    	if (i >= imgCount()) {
+    	if (i == imgCount()) {
 
 			i = 0 ; 
 
-			$(containerSelector + 'div:first-child').addClass('active');
+			$(containerSelector + 'div.active').removeClass('active').animate({
+				opacity: 0,
+			}, 380);
+
+			$(containerSelector + 'div:first-child').addClass('active').animate({
+				opacity: 1,
+			}, 500); 
 
 		} else {
 
-	    $(containerSelector + 'div.active').removeClass('active').next('div').addClass('active');
+	    $(containerSelector + 'div.active').removeClass('active').animate({
+				opacity: 0,
+			}, 380).next('div').addClass('active').animate({
+				opacity: 1,
+			}, 500);
 
 	    }
 
